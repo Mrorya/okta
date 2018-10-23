@@ -55,6 +55,5 @@ with open('okta_group_export.csv', 'wb') as csvfile:
 		json_obj2= json.loads(the_page2)
 		apps = ''
 		for json_row in json_obj2:
-				apps = json_row["label"]
-				apps = apps + '; '
+			apps = apps + json_row["label"] + '; '
 		filewriter.writerow([groupId, groupName, groupType, description, apps])
