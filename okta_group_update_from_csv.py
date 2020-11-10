@@ -75,7 +75,7 @@ for i in email_address:
 # Write list of users not found to csv file
 if users_not_found != []:
     print('Some emails were not found in Okta. Creating export emails_not_found.csv')
-    with open('emails_not_found.csv', 'wb') as csvfile:
+    with open('emails_not_found.csv', 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(['emailAddress'])
         for i in users_not_found:
