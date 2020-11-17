@@ -4,6 +4,8 @@
 # the application assignment, group type, and notes
 # into a csv file
 #
+# Updated for Python3+ 2020.09.2
+#
 
 
 import urllib2
@@ -37,7 +39,7 @@ def remove_unicode(string_data):
 
     return remove_ctrl_chars_regex.sub('', string_data)
 
-with open('okta_group_export.csv', 'wb') as csvfile:
+with open('okta_group_export.csv', 'w') as csvfile:
 	filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
 	filewriter.writerow(['groupId', 'groupName', 'groupType', 'Description', 'Apps'])
 	for json_row in json_obj:

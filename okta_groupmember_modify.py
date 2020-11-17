@@ -9,6 +9,8 @@
 #
 # Rory Aptekar
 # 11.02.18
+#
+# Updated for Python3+ 2020.09.2
 # 
 
 import json
@@ -31,8 +33,8 @@ json_obj = req.json()
 for json_row in json_obj:
 	group_id = json_row["id"]
 	group_name = json_row["profile"]["name"]
-	print "Group Name: " + group_name
-	print "Group ID: " + group_id
+	print ("Group Name: " + group_name)
+	print ("Group ID: " + group_id)
 
 group_selected_id = raw_input("Enter the group id to process for user profile updates: ")
 
@@ -62,4 +64,4 @@ for json_row in json_obj2:
 	last_name = json_row["profile"]["lastName"]
 	payload_dict = {"profile":{"city":"San Francisco", "state":"CA"}}
 	requests.post(url3, data=json.dumps(payload_dict), headers=headers)
-	print "Updated " + first_name + " " + last_name + "'s profile data"
+	print("Updated " + first_name + " " + last_name + "'s profile data")

@@ -9,6 +9,8 @@
 #
 # Rory Aptekar
 # 08.01.19
+#
+# Updated for Python3+ 2020.09.2
 # 
 
 import json
@@ -32,8 +34,8 @@ json_obj = req.json()
 for json_row in json_obj:
 	group_id = json_row["id"]
 	group_name = json_row["profile"]["name"]
-	print "Group Name: " + group_name
-	print "Group ID: " + group_id
+	print ("Group Name: " + group_name)
+	print ("Group ID: " + group_id)
 
 group_selected_id = raw_input("Enter the group id to process for user profile updates: ")
 
@@ -43,7 +45,7 @@ req2 = requests.get(url2, headers=headers)
 json_obj2 = req2.json()
 
 
-with open('okta_group_members.csv', 'wb') as csvfile:
+with open('okta_group_members.csv', 'w') as csvfile:
     filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
     filewriter.writerow(['Full Name','Email Address', 'Status'])
     for json_row in json_obj2:

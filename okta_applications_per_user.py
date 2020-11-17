@@ -2,7 +2,9 @@
 #
 # The purpose of this script is to take the user's input of an email address 
 # and return the application's currently assigned to him.
-# 
+#
+# Updated for Python3+ 2020.09.2
+#
 
 import urllib2
 import json
@@ -38,7 +40,7 @@ for json_row in json_obj:
 	apps = ''
 	for json_row in json_obj2:
 		apps = apps + json_row["label"] + '; '
-	print "Name: " + display_name
-	print "Login: " + login
-	print "Title: " + title
-	print "Apps: " + apps
+	print ("Name: " + display_name)
+	print ("Login: " + login)
+	print ("Title: " + title)
+	print ("Apps: " + apps)

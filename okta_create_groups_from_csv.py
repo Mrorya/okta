@@ -7,6 +7,8 @@
 # Rory Aptekar
 # 2019.08.13
 #
+# Updated for Python3+ 2020.09.2
+#
 
 import csv
 import requests
