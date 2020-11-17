@@ -4,6 +4,8 @@
 # the application assignment, group type, and notes
 # into a csv file
 #
+# Updated for Python3+ 2020.09.2
+#
 
 
 import urllib2
@@ -11,9 +13,8 @@ import json
 import csv
 import re
 
-token = '[REDACTED]'
-url = '[INSERT]/api/v1/groups'
-
+token = '{api_token}'
+base_url = 'https://{subdomain}.okta.com/api/v1/'
 headers = {'Authorization' : 'SSWS ' + token,
           'Accept' : 'application/json',
           'Content-Type' : 'application/json' }
@@ -37,7 +38,7 @@ def remove_unicode(string_data):
 
     return remove_ctrl_chars_regex.sub('', string_data)
 
-with open('okta_group_export.csv', 'wb') as csvfile:
+with open('okta_group_export.csv', 'w') as csvfile:
 	filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
 	filewriter.writerow(['groupId', 'groupName', 'groupType', 'Description', 'Apps'])
 	for json_row in json_obj:

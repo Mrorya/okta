@@ -14,20 +14,23 @@
 # Rory Aptekar
 # 2019.08.26
 #
+# Updated for Python3+ 2020.09.2
+#
+
 
 import csv
 import requests
 import sys
 
 token = '{api_token}'
-base_url = 'https://{domain}.okta.com/api/v1/'
+base_url = 'https://{subdomain}.okta.com/api/v1/'
 headers = {'Authorization' : 'SSWS ' + token,
           'Accept' : 'application/json',
           'Content-Type' : 'application/json' }
 
 # Ask user for name of csv file
 print("Please make sure your csv file is formatted with two columns, the first column being the email and the second column being the group name. \n")
-csv_input = raw_input("Enter the filename of the csv: ")
+csv_input = input("Enter the filename of the csv: ")
 
 # Open CSV and append all rows to lists for email and group
 with open(csv_input, 'r') as csvfile:

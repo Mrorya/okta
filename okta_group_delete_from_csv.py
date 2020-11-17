@@ -13,6 +13,8 @@
 # Rory Aptekar
 # 2019.08.06
 #
+# Updated for Python3+ 2020.09.2
+#
 
 import csv
 import requests
@@ -38,8 +40,8 @@ json_obj = req.json()
 for json_row in json_obj:
 	group_id = json_row["id"]
 	group_name = json_row["profile"]["name"]
-	print "Group Name: " + group_name
-	print "Group ID: " + group_id
+	print ("Group Name: " + group_name)
+	print ("Group ID: " + group_id)
 
 # Ask user for group ID copied from above
 group_selected_id = raw_input("Enter the group id to process for user profile updates: ")
@@ -76,7 +78,7 @@ for i in email_address:
 # Write list of users not found to csv file
 if users_not_found != []:
     print('Some emails were not found in Okta. Creating export emails_not_found.csv')
-    with open('emails_not_found.csv', 'wb') as csvfile:
+    with open('emails_not_found.csv', 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(['emailAddress'])
         for i in users_not_found:

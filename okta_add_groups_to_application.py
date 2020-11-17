@@ -9,6 +9,8 @@
 # Rory Aptekar
 # 2019.08.29
 #
+# Updated for Python3+ 2020.09.2
+#
 
 import csv
 import requests
@@ -69,8 +71,8 @@ json_obj = req.json()
 for json_row in json_obj:
     app_id = json_row["id"]
     app_name = json_row["label"]
-    print "App Name: " + app_name
-    print "App ID: " + app_id
+    print ("App Name: " + app_name)
+    print ("App ID: " + app_id)
 
 # Ask user for the app ID to execute the group assignment on
 app_selected_id = raw_input("Enter the application id to process for group assignment updates: ")

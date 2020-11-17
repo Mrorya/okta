@@ -7,13 +7,15 @@
 # Rory Aptekar
 # 2019.08.13
 #
+# Updated for Python3+ 2020.09.2
+#
 
 import csv
 import requests
 
 # Set Okta api token and base URL
-token = '$TOKEN'
-base_url = 'https://$DOMAIN.okta.com/api/v1/'
+token = '{api_token}'
+base_url = 'https://{subdomain}.okta.com/api/v1/'
 headers = {'Authorization' : 'SSWS ' + token,
           'Accept' : 'application/json',
           'Content-Type' : 'application/json' }
