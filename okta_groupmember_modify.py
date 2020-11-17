@@ -18,8 +18,8 @@ import pprint
 import requests
 import sys
 
-token = '{REDACTED}'
-base_url = 'https://{REDACTED}.com/api/v1/'
+token = '{api_token}'
+base_url = 'https://{subdomain}.okta.com/api/v1/'
 headers = {'Authorization' : 'SSWS ' + token,
           'Accept' : 'application/json',
           'Content-Type' : 'application/json' }

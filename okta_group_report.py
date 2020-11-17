@@ -19,8 +19,8 @@ import csv
 import requests
 import sys
 
-token = '{token}'
-base_url = 'http://{okta_domain}.okta.com/api/v1/'
+token = '{api_token}'
+base_url = 'https://{subdomain}.okta.com/api/v1/'
 headers = {'Authorization' : 'SSWS ' + token,
           'Accept' : 'application/json',
           'Content-Type' : 'application/json' }
