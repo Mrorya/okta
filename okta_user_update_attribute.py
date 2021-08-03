@@ -1,17 +1,8 @@
 #!/usr/bin/python
 #
-# The purpose of this script is to be able to update user profile data for a given group.
-# This script has been configured to update location data for users but
-# can be modified easily to update other attributes for members of a given group.
+# Update specific user profile data from a targeted group
 #
-# As this does updating of live data rather than reporting, caution should be used prior
-# to executing the script. Test on an oktapreview domain!
 #
-# Rory Aptekar
-# 11.02.18
-#
-# Updated for Python3+ 2020.09.2
-# 
 
 import json
 import pprint
@@ -19,7 +10,7 @@ import requests
 import sys
 
 token = '{api_token}'
-base_url = 'https://{subdomain}.okta.com/api/v1/'
+base_url = 'https://{domain}/api/v1/'
 headers = {'Authorization' : 'SSWS ' + token,
           'Accept' : 'application/json',
           'Content-Type' : 'application/json' }
@@ -61,9 +52,9 @@ ask_user()
 json_obj2 = req2.json()
 for json_row in json_obj2:
     user_id = json_row["id"]
-	first_name = json_row["profile"]["firstName"]
-	last_name = json_row["profile"]["lastName"]
-    url3= base_url + 'users/' + user_id
-	payload_dict = {"profile":{"city":"San Francisco", "state":"CA"}}
-	requests.post(url3, data=json.dumps(payload_dict), headers=headers)
-	print("Updated " + first_name + " " + last_name + "'s profile data")
+    first_name = json_row["profile"]["firstName"]
+    last_name = json_row["profile"]["lastName"]
+    payload_dict = {"profile":{"division":""}}
+    url3 = base_url + 'users/' + user_id
+    requests.post(url3, data=json.dumps(payload_dict), headers=headers)
+    print("Updated " + first_name + " " + last_name + "'s division to blank")
